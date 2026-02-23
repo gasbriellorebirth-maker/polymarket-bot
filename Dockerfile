@@ -3,5 +3,4 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git python3 python3-pip curl
 RUN npm install -g openclaw
 RUN python3 -m pip install py-clob-client requests python-dotenv --break-system-packages
-RUN which openclaw || find / -name "openclaw" 2>/dev/null
-CMD openclaw gateway --port 18789
+CMD ["node", "/usr/local/lib/node_modules/openclaw/bin/openclaw.js", "gateway", "--port", "18789"]
